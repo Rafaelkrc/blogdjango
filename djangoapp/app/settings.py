@@ -33,6 +33,7 @@ ALLOWED_HOSTS = [h.strip() for h in os.getenv('ALLOWED_HOSTS', '').split(',') if
 # Application definition
 
 INSTALLED_APPS = [
+    'site_setup',
     'blog',
     'django.contrib.admin',
     'django.contrib.auth',
