@@ -1,7 +1,6 @@
 from django.contrib import admin
 from blog.models import Category, Page, Post, Tag
 from django_summernote.admin import SummernoteModelAdmin
-from django.urls import reverse
 from django.utils.safestring import mark_safe
 
 
@@ -66,7 +65,7 @@ class PostAdmin(SummernoteModelAdmin):
         if not obj.pk:
             return '-'
 
-        url_post = reverse('blog:post', args=(obj.slug,))
+        url_post = obj.get_absolute_url()
         safe_link = mark_safe(
             f'<a target="_blank" href="{url_post}">Ver post</a>'
         )
